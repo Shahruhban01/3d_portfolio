@@ -1,0 +1,506 @@
+/* ==================== RESPONSIVE UTILITIES ==================== */
+
+/* Container queries for modern responsive design */
+@container (min-width: 768px) {
+  .container-responsive {
+    padding: 0 40px;
+  }
+}
+
+/* ==================== MOBILE-FIRST BREAKPOINTS ==================== */
+
+/* Extra Small Devices (Phones, less than 576px) */
+@media (max-width: 575.98px) {
+  :root {
+    --section-padding: 60px 15px;
+  }
+
+  .hero-section {
+    min-height: 100svh; /* Use svh for mobile to account for address bar */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .about-canvas {
+    height: 300px;
+  }
+
+  .project-image-container {
+    height: 200px;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+  }
+
+  .timeline-marker {
+    left: 7px;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}
+
+/* Small Devices (Landscape Phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    min-width: 150px;
+  }
+}
+
+/* Medium Devices (Tablets, 768px and up) */
+@media (min-width: 768px) {
+  :root {
+    --section-padding: 100px 30px;
+  }
+
+  .container {
+    max-width: 720px;
+  }
+
+  .navbar-container {
+    padding: 0 30px;
+  }
+
+  .hero-content {
+    padding: 40px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .about-canvas {
+    height: 450px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .project-image-container {
+    height: 280px;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+  }
+
+  /* Timeline becomes horizontal on tablet */
+  .timeline {
+    padding: 50px 0;
+  }
+
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .timeline-item.left {
+    padding-right: 60px;
+    text-align: right;
+  }
+
+  .timeline-item.left .timeline-card {
+    border-left: none;
+    border-right: 4px solid var(--primary);
+  }
+
+  .timeline-item.right {
+    padding-left: 60px;
+    margin-left: 50%;
+  }
+
+  .timeline-marker {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Large Devices (Desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .navbar-container {
+    padding: 0 40px;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .about-canvas {
+    height: 500px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra Large Devices (Large Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  :root {
+    --section-padding: 120px 40px;
+  }
+
+  .container {
+    max-width: 1140px;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+
+  .about-content {
+    gap: 80px;
+  }
+
+  .projects-grid,
+  .blog-grid {
+    gap: 50px;
+  }
+}
+
+/* Ultra Wide Screens (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: var(--container-max);
+  }
+
+  .about-canvas {
+    height: 550px;
+  }
+}
+
+/* ==================== TOUCH DEVICE OPTIMIZATIONS ==================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .project-card:hover {
+    transform: none;
+  }
+
+  /* Make tap targets larger for better accessibility */
+  .nav-link,
+  .btn,
+  .project-link-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Disable auto-rotate on mobile for better performance */
+  .hero-canvas-container canvas {
+    touch-action: pan-y;
+  }
+
+  /* Simplify animations on touch devices */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+/* ==================== HIGH DPI SCREENS ==================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize for retina displays */
+  .project-image,
+  .hero-canvas-container {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable 3D transforms for users who prefer reduced motion */
+  .hero-canvas-container,
+  .about-canvas {
+    display: none;
+  }
+}
+
+/* ==================== DARK MODE SUPPORT ==================== */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #f5f5f5;
+    --background-light: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #666666;
+  }
+
+  .navbar {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .project-overlay {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* ==================== LANDSCAPE ORIENTATION ==================== */
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-section {
+    min-height: auto;
+    padding: 100px 20px 60px;
+  }
+
+  .hero-canvas-container {
+    height: 400px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+  .navbar,
+  .hero-canvas-container,
+  .about-canvas,
+  .scroll-indicator,
+  .contact-form,
+  .mobile-menu,
+  .hamburger {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+
+/* Show/Hide based on screen size */
+.mobile-only {
+  display: block;
+}
+
+.tablet-up {
+  display: none;
+}
+
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+
+  .tablet-up {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Responsive text sizes */
+.text-responsive {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.heading-responsive {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Responsive spacing */
+.spacing-responsive {
+  margin: clamp(20px, 5vw, 60px) 0;
+}
+
+.padding-responsive {
+  padding: clamp(15px, 3vw, 40px);
+}
+
+/* Aspect ratio utilities */
+.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+/* Responsive grid utilities */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 20px;
+}
+
+.grid-responsive-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+  gap: 30px;
+}
+
+/* Flex utilities for responsive layouts */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .flex-responsive {
+    flex-direction: row;
+  }
+}
+
+/* Responsive images */
+.img-responsive {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Safe area for notch devices (iPhone X and newer) */
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(20px, env(safe-area-inset-top));
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  .safe-area-left {
+    padding-left: max(20px, env(safe-area-inset-left));
+  }
+
+  .safe-area-right {
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+/* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+
+/* GPU acceleration for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Prevent layout shift */
+.prevent-shift {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+/* Lazy load optimization */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
